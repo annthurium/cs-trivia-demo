@@ -1,0 +1,14 @@
+{
+  "name": "javascript-ai-configs-launchdarkly",
+  "version": "1.0.0",
+  "description": "Demo showing how to use LaunchDarkly's AI config feature for prompt and model management in a JavaScript application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tilde Thurium",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
