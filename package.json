@@ -9,6 +9,11 @@
   "author": "Tilde Thurium",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.21.2"
+    "@launchdarkly/node-server-sdk": "^9.7.3",
+    "@launchdarkly/server-sdk-ai": "^0.8.2",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.80.1"
   }
 }
