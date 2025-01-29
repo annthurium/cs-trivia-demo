@@ -21,28 +21,31 @@ async function generate(kwargs) {
 
   try {
     const aiConfigKey = "diane-tilde-test";
-    const defaultValue = new launchDarklyAI.AIConfig({
+    const defaultValue = {
       enabled: true,
-      model: new launchDarklyAI.ModelConfig({ name: "gpt-4" }),
+      model: { name: "gpt-4" },
       messages: [],
-    });
+    };
 
-    const [configValue, tracker] = await ldAiClient.config(
+    const configValue = await ldAiClient.config(
       aiConfigKey,
       context,
       defaultValue,
-      kwargs
+      {
+        ...kwargs,
+      }
     );
 
     const modelName = configValue.model.name;
     console.log("CONFIG VALUE: ", configValue);
     console.log("MODEL NAME: ", modelName);
-
+    const { tracker } = configValue;
+    console.log("TRACKER", tracker);
     const messages = configValue.messages || [];
     const completion = await tracker.trackOpenAIMetrics(async () => {
       return await openaiClient.chat.completions.create({
         model: modelName,
-        messages: messages.map((message) => message.toObject()),
+        messages,
       });
     });
 
