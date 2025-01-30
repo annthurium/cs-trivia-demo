@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const { generate } = require("./openaiClient");
+const { generate } = require("./openAIClient");
 const bodyParser = require("body-parser");
 
 const app = express();
