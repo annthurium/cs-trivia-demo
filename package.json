@@ -4,6 +4,7 @@
   "description": "Demo showing how to use LaunchDarkly's AI config feature for prompt and model management in a JavaScript application.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tilde Thurium",
@@ -15,5 +16,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "openai": "^4.80.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
