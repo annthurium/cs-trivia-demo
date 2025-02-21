@@ -4,7 +4,7 @@ const OpenAI = require("openai");
 const launchDarkly = require("@launchdarkly/node-server-sdk");
 const launchDarklyAI = require("@launchdarkly/server-sdk-ai");
 
-const LD_CONFIG_KEY = "model-upgrade";
+const LD_CONFIG_KEY = "cs-trivia-prompt";
 const DEFAULT_CONFIG = {
   enabled: true,
   model: { name: "gpt-4" },
@@ -36,14 +36,13 @@ async function generate(options = {}) {
       DEFAULT_CONFIG,
       options
     );
-
+    console.log("configValue: ", configValue);
     const {
       model: { name: modelName },
       tracker,
       messages = [],
     } = configValue;
 
-    console.log("model: ", configValue.model);
     const completion = await tracker.trackOpenAIMetrics(async () =>
       openaiClient.chat.completions.create({
         model: modelName,

@@ -3,33 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generate a letter of reference</title>
+    <title>CS Trivia Poetry Generator</title>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
     <div class="formContainer">
-      <h1>✏️ Student Reference Letter Generator ✏️</h1>
-
-      <form action="/submit" id="generateForm" method="post">
-        <div class="form-group">
-          <label for="studentName">Student name:</label>
-          <input type="text" id="studentName" name="studentName" required />
-        </div>
-        <button type="submit">Generate letter</button>
-        <div class="form-group"></div>
-      </form>
-      <div id="result" class="result-container" style="white-space: pre-wrap">
+      <h1>✏️ CS Trivia Poetry Generator ✏️</h1>
+      <button type="button" id="generateBtn">Generate poem</button>
+      <div
+        id="result"
+        class="result-container"
+        style="white-space: pre-wrap"
+      ></div>
     </div>
 
     <script>
       document
-        .getElementById("generateForm")
-        .addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const studentName = document.getElementById("studentName").value;
+        .getElementById("generateBtn")
+        .addEventListener("click", async () => {
+          const studentName = "foo";
 
           const resultDiv = document.getElementById("result");
-          resultDiv.innerHTML = `<p>Generating reference letter for ${studentName}...</p>`;
+          resultDiv.innerHTML = `<p>Generating poem...</p>`;
 
           try {
             const response = await fetch("/generate", {
